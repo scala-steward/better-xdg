@@ -1,0 +1,9 @@
+target
+
+/.idea/
+
+# Scala Metals
+# https://scalameta.org/metals/
+.metals/
+.bloop/
+project/metals.sbt
