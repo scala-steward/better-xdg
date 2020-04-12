@@ -1,18 +1,12 @@
 import BuildSettings._
 
 ThisBuild / scalaVersion := "2.13.1"
-ThisBuild / organization := "ph.samson.xdg"
-
-ThisBuild / organizationName := "Edward Samson"
-ThisBuild / startYear := Some(2020)
-ThisBuild / licenses += ("GPL-3.0-or-later", url(
-  "https://spdx.org/licenses/GPL-3.0-or-later.html"
-))
 
 lazy val root = Project(id = "better-xdg", base = file("."))
   .aggregate(
     basedir
   )
+  .settings(publish / skip := true)
   .disablePlugins(HeaderPlugin)
 
 lazy val basedir = module("basedir")
