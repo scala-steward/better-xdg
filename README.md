@@ -1,9 +1,22 @@
 # better-xdg
 
+
 A Scala combo of
 [better-files][1] +
 [lightbend/config][2] +
 [XDG Base Directory Specification][3].
+
+## Add to your dependencies.
+
+Latest release is available from Maven Central.
+
+[![version](https://maven-badges.herokuapp.com/maven-central/ph.samson.xdg/basedir_2.13/badge.svg?subject=version&style=flat-square)](https://maven-badges.herokuapp.com/maven-central/ph.samson.xdg/basedir_2.13/)
+
+```scala
+libraryDependencies += "ph.samson.xdg" %% "basedir" % version
+```
+
+## Use in your code.
 
 ```scala
 import ph.samson.xdg.basedir._
