@@ -2,7 +2,6 @@ name: Scala CI
 
 on:
   push:
-    branches: [ master ]
   pull_request:
     branches: [ master ]
 
@@ -17,6 +16,10 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
+    - name: Check sbt formatting
+      run: sbt scalafmtSbtCheck
+    - name: Check code formatting
+      run: sbt scalafmtCheckAll
     - name: Check headers
       run: sbt headerCheck
     - name: Run tests
