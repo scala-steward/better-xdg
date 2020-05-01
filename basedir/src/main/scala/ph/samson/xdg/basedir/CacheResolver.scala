@@ -24,8 +24,8 @@ class CacheResolver(base: String) {
   private val cacheHome =
     sys.env.get(Env.CacheHome).map(File(_)).getOrElse(Default.CacheHome)
 
-  def get: File = File(cacheHome, base)
+  def get: File = cacheHome / base
 
   def get(path: String, fragments: String*): File =
-    File(get, path, fragments: _*)
+    resolve(get / path, fragments)
 }

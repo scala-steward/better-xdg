@@ -24,8 +24,8 @@ class RuntimeResolver(base: String) {
   private val runtimeHome =
     sys.env.get(Env.RuntimeDir).map(File(_))
 
-  def get: Option[File] = runtimeHome.map(File(_, base))
+  def get: Option[File] = runtimeHome.map(_ / base)
 
   def get(path: String, fragments: String*): Option[File] =
-    get.map(File(_, path, fragments: _*))
+    get.map(runtime => resolve(runtime / path, fragments))
 }

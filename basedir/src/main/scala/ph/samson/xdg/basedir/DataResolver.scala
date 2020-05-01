@@ -32,10 +32,10 @@ class DataResolver(base: String) {
     .map(dirs => dirs.split(pathSeparatorChar).map(File(_)).toSeq)
     .getOrElse(Default.DataDirs)
 
-  def get: File = File(dataHome, base)
+  def get: File = dataHome / base
 
   def get(path: String, fragments: String*): File =
-    File(get, path, fragments: _*)
+    resolve(get / path, fragments)
 
   def lookup: Seq[File] =
     (dataHome +: dataDirs).map(dir => File(dir, base)).filter(_.exists)

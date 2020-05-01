@@ -17,6 +17,8 @@
 
 package ph.samson.xdg
 
+import better.files.File
+
 package object basedir {
 
   def data(base: String) = new DataResolver(base)
@@ -26,4 +28,13 @@ package object basedir {
   def cache(base: String) = new CacheResolver(base)
 
   def runtime(base: String) = new RuntimeResolver(base)
+
+  @scala.annotation.tailrec
+  private[basedir] def resolve(resolved: File, fragments: Seq[String]): File = {
+    if (fragments.isEmpty) {
+      resolved
+    } else {
+      resolve(resolved / fragments.head, fragments.tail)
+    }
+  }
 }

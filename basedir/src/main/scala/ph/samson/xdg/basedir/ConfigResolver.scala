@@ -33,10 +33,10 @@ class ConfigResolver(base: String) {
     .map(dirs => dirs.split(pathSeparatorChar).map(File(_)).toSeq)
     .getOrElse(Default.ConfigDirs)
 
-  def get: File = File(configHome, base)
+  def get: File = configHome / base
 
   def get(path: String, fragments: String*): File =
-    File(get, path, fragments: _*)
+    resolve(get / path, fragments)
 
   def lookup: Seq[File] =
     (configHome +: configDirs).map(dir => File(dir, base)).filter(_.exists)

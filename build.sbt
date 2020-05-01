@@ -4,7 +4,8 @@ ThisBuild / scalaVersion := "2.13.1"
 
 lazy val root = Project(id = "better-xdg", base = file("."))
   .aggregate(
-    basedir
+    basedir,
+    basedirTests2
   )
   .settings(publish / skip := true)
   .disablePlugins(HeaderPlugin)
@@ -36,6 +37,35 @@ lazy val basedir = module("basedir")
           )
         )
         .withRunJVMOptions(Vector("-Dtest.conf1=sysprops"))
+    }
+  )
+
+lazy val basedirTests2 = module("basedir-tests2")
+  .dependsOn(basedir % "test->test")
+  .settings(
+    Test / fork := true,
+    Test / forkOptions := {
+      val testDirs = (Test / sourceDirectory).value / "dirs"
+      ForkOptions()
+        .withEnvVars(
+          fileVars(
+            Map(
+              "XDG_DATA_HOME" -> testDirs / "home" / "local" / "share",
+              "XDG_CONFIG_HOME" -> testDirs / "home" / "config"
+            )
+          ) ++ dirsVars(
+            Map(
+              "XDG_DATA_DIRS" -> Seq(
+                testDirs / "usr" / "local" / "share",
+                testDirs / "usr" / "share"
+              ),
+              "XDG_CONFIG_DIRS" -> Seq(
+                testDirs / "etc" / "xdg",
+                testDirs / "usr" / "share" / "settings" / "xdg"
+              )
+            )
+          )
+        )
     }
   )
 
