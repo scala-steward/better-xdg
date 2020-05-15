@@ -16,7 +16,7 @@ object Dependencies {
 
   object Libs {
 
-    val betterFiles = "com.github.pathikrit" %% "better-files" % "3.8.0"
+    val betterFiles = "com.github.pathikrit" %% "better-files" % "3.9.0"
 
     val config = "com.typesafe" % "config" % "1.4.0"
 
