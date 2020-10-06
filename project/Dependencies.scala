@@ -31,8 +31,7 @@ object Dependencies {
     def result: Seq[ModuleID] = dependencies.map(_ % configuration)
   }
 
-  /**
-    * Pimp [[Configuration]] so you can say:
+  /** Pimp [[Configuration]] so you can say:
     *
     * {{{
     *   Test(lib1, lib2)
@@ -46,8 +45,7 @@ object Dependencies {
       new DepsBuilder(configuration, dependencies)
   }
 
-  /**
-    * [[Append.Values]] implementation so you can say:
+  /** [[Append.Values]] implementation so you can say:
     *
     * {{{
     *   libraryDependencies ++= Test(lib1, lib2)
