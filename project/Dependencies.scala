@@ -18,7 +18,7 @@ object Dependencies {
 
     val betterFiles = "com.github.pathikrit" %% "better-files" % "3.9.1"
 
-    val config = "com.typesafe" % "config" % "1.4.0"
+    val config = "com.typesafe" % "config" % "1.4.1"
 
     val logbackClassic = "ch.qos.logback" % "logback-classic" % "1.2.3"
 
