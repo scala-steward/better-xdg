@@ -2,8 +2,11 @@ target
 
 /.idea/
 
+# sbt
+.bsp/
+
 # Scala Metals
 # https://scalameta.org/metals/
 .metals/
 .bloop/
-project/metals.sbt
+metals.sbt
