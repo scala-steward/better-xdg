@@ -1,6 +1,6 @@
 import BuildSettings._
 
-ThisBuild / scalaVersion := "2.13.8"
+ThisBuild / scalaVersion := "2.13.10"
 
 lazy val root = Project(id = "better-xdg", base = file("."))
   .aggregate(
