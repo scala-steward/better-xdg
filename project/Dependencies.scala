@@ -16,7 +16,7 @@ object Dependencies {
 
   object Libs {
 
-    val betterFiles = "com.github.pathikrit" %% "better-files" % "3.9.1"
+    val betterFiles = "com.github.pathikrit" %% "better-files" % "3.9.2"
 
     val config = "com.typesafe" % "config" % "1.4.2"
 
@@ -24,7 +24,7 @@ object Dependencies {
 
     val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
 
-    val scalaTest = "org.scalatest" %% "scalatest" % "3.2.14"
+    val scalaTest = "org.scalatest" %% "scalatest" % "3.2.15"
   }
 
   class DepsBuilder(configuration: Configuration, dependencies: Seq[ModuleID]) {
