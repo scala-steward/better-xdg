@@ -27,30 +27,10 @@ object BuildSettings {
         .map(opts => project.settings(Test / javaOptions += opts))
         .getOrElse(project)
 
-    val itConfig = (project: Project) =>
-      if ((project.base / "src" / "it").isDirectory) {
-        project
-          .configs(IntegrationTest)
-          .settings(
-            Defaults.itSettings,
-            IntegrationTest / logBuffered := false
-          )
-      } else {
-        project
-      }
-
-    val itOpts = (project: Project) =>
-      sys.env
-        .get("IT_OPTS")
-        .map(opts => project.settings(IntegrationTest / javaOptions += opts))
-        .getOrElse(project)
-
     val config =
       baseConfig andThen
         orgConfig andThen
-        testOpts andThen
-        itConfig andThen
-        itOpts
+        testOpts
 
     config(Project(projectId, dir))
   }
