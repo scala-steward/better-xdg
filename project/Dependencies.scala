@@ -24,7 +24,7 @@ object Dependencies {
 
     val scalaLogging = "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2"
 
-    val scalaTest = "org.scalatest" %% "scalatest" % "3.2.17"
+    val scalaTest = "org.scalatest" %% "scalatest" % "3.2.18"
   }
 
   class DepsBuilder(configuration: Configuration, dependencies: Seq[ModuleID]) {
