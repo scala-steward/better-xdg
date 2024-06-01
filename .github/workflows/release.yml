@@ -18,7 +18,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '21'
-      - uses: olafurpg/setup-gpg@v3
       - name: Publish ${{ github.ref }}
         run: sbt ci-release
         env:
