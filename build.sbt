@@ -1,6 +1,6 @@
 import BuildSettings._
 
-ThisBuild / scalaVersion := "3.3.5"
+ThisBuild / scalaVersion := "3.3.6"
 ThisBuild / versionScheme := Some("semver-spec")
 
 lazy val root = Project(id = "better-xdg", base = file("."))
